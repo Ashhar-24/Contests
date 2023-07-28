@@ -66,27 +66,38 @@ int main() {
 		sort(odd.begin(), odd.end());
 		sort(even.begin(), even.end());
 
-		int i = 0, j = 0;
-		while (i < n && j < odd.size()) {
+		// int i = 0, j = 0;
+		// while (i < n && j < odd.size()) {
+		// 	if (arr[i] % 2 != 0) {
+		// 		arr[i] = odd[j];
+		// 		i++;
+		// 		j++;
+		// 	}
+		// 	else {
+		// 		i++;
+		// 	}
+		// }
+
+		// i = 0, j = 0;
+		// while (i < n && j < even.size()) {
+		// 	if (arr[i] % 2 == 0) {
+		// 		arr[i] = even[j];
+		// 		i++;
+		// 		j++;
+		// 	}
+		// 	else {
+		// 		i++;
+		// 	}
+		// }
+		int j = 0, k = 0;
+		for (int i = 0; i < n; i++) {
 			if (arr[i] % 2 != 0) {
 				arr[i] = odd[j];
-				i++;
 				j++;
 			}
 			else {
-				i++;
-			}
-		}
-
-		i = 0, j = 0;
-		while (i < n && j < even.size()) {
-			if (arr[i] % 2 == 0) {
-				arr[i] = even[j];
-				i++;
-				j++;
-			}
-			else {
-				i++;
+				arr[i] = even[k];
+				k++;
 			}
 		}
 
