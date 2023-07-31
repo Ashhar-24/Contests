@@ -51,6 +51,8 @@ int main() {
 		}
 		*/
 
+		// O(nlogn) [due to sorting done]
+
 		vector<int>odd;
 		vector<int>even;
 
