@@ -48,3 +48,4 @@ int main() {
 		name.empty() ? cout << "yes" << '\n' : cout << "no" << '\n';
 	}
 }
+//code end
