@@ -18,11 +18,9 @@ int main(){
                     mul= v[i]*j;
                 }
                 ans=mul;
-                // cout<<ans <<" (1)"<<'\n';
             }
             else{
                 ans=v[i];
-                // cout<<ans<<" (2)"<<'\n';
             }
         }
 
