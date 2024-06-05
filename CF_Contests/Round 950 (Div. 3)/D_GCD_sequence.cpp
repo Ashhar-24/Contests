@@ -9,7 +9,7 @@ bool check(vector<int>&arr, int index){
         else newarr.push_back(arr[i]);
     }
 
-    int last=__gcd(newarr[0],newarr[1]);             // gcd of any two no is always 1
+    int last=__gcd(newarr[0],newarr[1]);             // gcd of first 2 no.s
     for(int i=1; i<newarr.size()-1; i++){
         int y= __gcd(newarr[i], newarr[i+1]);
         if(y<last) return false;
