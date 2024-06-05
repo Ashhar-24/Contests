@@ -12,15 +12,19 @@ void solve(){
     int fav=v[f-1];
     sort(v.begin(), v.end(), greater<int>());
 
-    if(v[k-1]>fav)cout<<"NO"<<'\n';
-    else{
-        bool pr=0;
-        for(int i=k; i<n; i++){
-            if(v[i]==fav)pr=1;
-        }
-        if(pr==1)cout<<"MAYBE"<<'\n';
-        else cout<<"YES"<<'\n';
-    }
+    // if(v[k-1]>fav)cout<<"NO"<<'\n';
+    // else{
+    //     bool pr=0;
+    //     for(int i=k; i<n; i++){
+    //         if(v[i]==fav)pr=1;
+    //     }
+    //     if(pr==1)cout<<"MAYBE"<<'\n';
+    //     else cout<<"YES"<<'\n';
+    // } => Got hacked
+
+    if(k==n || v[k]<fav) cout<<"YES"<<'\n';
+    else if(v[k-1]==fav and v[k]==fav) cout<<"MAYBE"<<'\n';
+    else cout<<"NO"<<'\n';
 
 }	
 
@@ -34,3 +38,5 @@ int main() {
 
     return 0;
 }
+
+// Upsolve
