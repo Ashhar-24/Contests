@@ -9,6 +9,8 @@ bool check(vector<int>&arr, int index){
         else newarr.push_back(arr[i]);
     }
 
+    // No need to make new array for calculating gcd and then comparing, can do it together
+    
     int last=__gcd(newarr[0],newarr[1]);             // gcd of first 2 no.s
     for(int i=1; i<newarr.size()-1; i++){
         int y= __gcd(newarr[i], newarr[i+1]);
