@@ -3,19 +3,41 @@
 using namespace std;
 
 void solve(){
-    int n; cin>>n;
+    ll n; cin>>n;
     string s; cin>>s;
-    int ans= n* (n+1)/2;
-    map<int,int>pf;
-    int val=0;
-    pf[0]++;
+
+    // The summation expression given is nothing but the sum of modes for all the possible substrings.
+
+    /*
+        For every substring, the mode would be either 1 or 2. So we just need to calculate the no of strings
+        which has same no of 0 and 1. And these no of substrings to total possible substrings (as these would have
+        1 mode each).
+    */
+
+    ll ans= n* (n+1)/2;             // No of possible substrings, as all would be having mode 1
+    
+    /*
+        Now we have to calculate the no of substrings which have equal no of 0's and 1's.
+        An effective way to this is, by taking a subarray, making it's 0 to -1 and calculating it's sum.
+        If the sum==0, means that it has equal no of 0's and 1's.
+        ie, Effectively we have to find the no of subarray's having sum 0 after replacing 0's by -1's.
+
+        To implement this, we take a map and calculate the prefix sum and increase it's count if it again appears.
+        This would mean that in between there was a subarray whose sum was 0.
+        Now we can do it directly on the given string, by encountering '1' we can add 1 to our prefix sum and
+        decrement it by 1 elsewise.
+    */
+
+    map<int,int>mp;
+    int pfsum=0;
+    mp[0]++;
     
     for(auto x:s){
-        if(x=='1') val++;
-        else val--;
+        if(x=='1') pfsum++;
+        else pfsum--;
 
-        ans+=pf[val];
-        pf[val]++;
+        ans+=mp[pfsum];
+        mp[pfsum]++;
     }
 
     cout<<ans<<'\n';
