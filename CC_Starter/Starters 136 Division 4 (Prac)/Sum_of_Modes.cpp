@@ -10,8 +10,8 @@ void solve(){
 
     /*
         For every substring, the mode would be either 1 or 2. So we just need to calculate the no of strings
-        which has same no of 0 and 1. And these no of substrings to total possible substrings (as these would have
-        1 mode each).
+        which has same no of 0 and 1. And add these no of substrings to total possible substrings 
+        (as these would have 1 mode each).
     */
 
     ll ans= n* (n+1)/2;             // No of possible substrings, as all would be having mode 1
@@ -29,16 +29,16 @@ void solve(){
     */
 
     map<int,int>mp;
-    int pfsum=0;
-    mp[0]++;
-    
+    int pfsum=0;                // Keeps account of prefix sum
+    mp[0]++;                   // Initially, sum would be 0
+
     for(auto x:s){
         if(x=='1') pfsum++;
         else pfsum--;
 
-        ans+=mp[pfsum];
-        mp[pfsum]++;
-    }
+        ans+=mp[pfsum];     // If same prefix sum is found, increment the ans by 1
+        mp[pfsum]++;        // Increase the count of that sum by 1.
+    }  
 
     cout<<ans<<'\n';
 }	
