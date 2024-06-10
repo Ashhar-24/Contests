@@ -36,7 +36,7 @@ void solve(){
         if(x=='1') pfsum++;
         else pfsum--;
 
-        ans+=mp[pfsum];     // If same prefix sum is found, increment the ans by 1
+        ans+=mp[pfsum];     // If same prefix sum is found, increment the ans by ct of pfsum
         mp[pfsum]++;        // Increase the count of that sum by 1.
     }  
 
