@@ -35,6 +35,7 @@ int main() {
     len = ct(0) + ct(1) 
     ct(0)= k*(k+1)/2
     ct(1)= k-1, where k is the number of islands required.
+    ie, len shows the min length of the string required to create k different islands.
 
     So, if n >= len then we can create such a string.
     else not possible.
