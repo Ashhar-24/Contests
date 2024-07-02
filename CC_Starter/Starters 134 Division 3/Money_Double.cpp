@@ -4,14 +4,20 @@ using namespace std;
 
 void solve(){
     int x,y; cin>>x>>y;
-    if(x<1000){
-        x+=1000; 
-        y--;
-    } 
-        while(y>0){
-        x*=2;
-        y--;
-        }
+    // if(x<1000){
+    //     x+=1000; 
+    //     y--;
+    // } 
+    //     while(y>0){
+    //     x*=2;
+    //     y--;
+    //     }
+    // cout<<x<<'\n';
+        while(y--){
+        if(x*2>= x+1000)x*=2;
+        else x+=1000;
+    }
+    
     cout<<x<<'\n';
 }	
 
