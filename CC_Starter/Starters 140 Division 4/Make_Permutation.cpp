@@ -6,22 +6,11 @@ void solve(){
     int n; cin>>n;
     vector<int> v(n);
 
-    // map<int,int>mp;
-    // int sum=0;
     for(int i=0; i<n; i++){
         cin>>v[i];
-        // mp[v[i]]++;
-        // sum+=v[i];
     } 
-    bool ans=1;
-
-    // if(sum==n*(n+1)/2 and mp.size()!=n) ans=0;
-    // if(mp.rbegin()->second>1 and mp.rbegin()->first==n)ans=0;
-
-    // if(n==1)cout<<"Yes"<<'\n';
-    // else if(ans)cout<<"Yes"<<'\n';
-    // else cout<<"No"<<'\n';
     
+    bool ans=1;
 
     sort(v.begin(),v.end());
     for(int i=0; i<n; i++){
