@@ -10,21 +10,31 @@ void solve(){
         cin>>v[i];
     }
 
-   int ans=0;
-   int l=0, r;
-   while(l<n){
-       int ct=0;
-       r=l;
-       while(r<n and v[r]==v[l]){
-           ct++;
-           r++;
-       }
-       ans+=ceil(ct/2.0);
+//    int ans=0;
+//    int l=0, r;
+//    while(l<n){
+//        int ct=0;
+//        r=l;
+//        while(r<n and v[r]==v[l]){
+//            ct++;
+//            r++;
+//        }
+//        ans+=ceil(ct/2.0);
        
-       l=r;
-   }
+//        l=r;
+//    }
    
-   cout<<ans<<'\n';
+//    cout<<ans<<'\n';  
+
+    int ct=0;
+    for(int i=0; i<n-1; i++){
+        if(v[i]==v[i+1]){
+            ct++;
+            i++;
+        }
+    }
+
+    cout<<n-ct<<'\n';
 }	
 
 
@@ -38,4 +48,4 @@ int main() {
     return 0;
 }
 
-//upsolve: Use two pointer to find the ct of simultaneous same characters
+//upsolve
