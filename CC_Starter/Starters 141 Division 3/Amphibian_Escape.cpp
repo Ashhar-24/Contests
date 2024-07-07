@@ -12,7 +12,7 @@ void solve(){
         }
         // int req = ceil((h-i)/(double)(k-1));
         int req= (h-i)/(k-1);
-        if((h-i)%(k-1)!=0)req++;
+        if((h-i)%(k-1)!=0)req++;    // another way of taking ceil
 
         int b= i - req; 
         if(b>=0)ans+=b;
