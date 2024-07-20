@@ -63,7 +63,7 @@ void solve(){
     for(int i=n; i>=1; i--){
         if(v[i]>x) dp[i]+=dp[i+1];
         else{           
-            // applying binary search on prefix array to find the end index of subarray till where sum<=k.
+            // applying binary search on prefix array to find the end index of subarray till where sum<=k, starting at index i.
             int l= i, r=n, index=i;
             while(l<=r){
                 int mid = (l+r)/2;
