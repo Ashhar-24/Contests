@@ -58,11 +58,12 @@ void solve(){
         pre[i]+=pre[i-1];
     }
 
-    // dp[i] -> represents the cnt of subarray such that it starts at index i and satisfies has end sum <= k.
+    // dp[i] -> represents the cnt of subarray such that it starts from index i and has end sum <= k.
 
     for(int i=n; i>=1; i--){
         if(v[i]>x) dp[i]+=dp[i+1];
-        else{                   // applying binary search to find the end index of subarray till where sum<=k.
+        else{           
+            // applying binary search on prefix array to find the end index of subarray till where sum<=k.
             int l= i, r=n, index=i;
             while(l<=r){
                 int mid = (l+r)/2;
