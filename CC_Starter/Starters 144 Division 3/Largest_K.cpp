@@ -45,7 +45,6 @@ void solve(){
     vector<int>freq;
     for(auto &p: mp){
         freq.pb(p.second);
-    
     }
     // sort(freq.begin(),freq.end());
 
