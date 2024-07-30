@@ -33,32 +33,20 @@ int convertdecimal(vector<int> v){
     }
     return ans;
 }
-void solve() {
-    int n; cin >> n;
-    int cnt = 0;
-    // if (n == 2 || n == 4) {
-    //     cout << 1 << '\n'; return;
-    // }
-    // else {
-    //     while (n > 0) {
-    //         if (n >= 4) {
-    //             cnt++;
-    //             n -= 4;
-    //         }
-    //         else {
-    //             cnt++;
-    //             n -= 2;
-    //         }
-    //     }
-    // }
-    cnt = n/4;
-    cnt += (n%4)/2;
 
-    cout << cnt << '\n';
-}
+void solve(){
+    int n; cin>>n;
+    int cnt= n/4;
+    if(n%4!=0)cnt++;
+    cout<<cnt<<'\n';
+}	
 
 
 signed main() {
+
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
     int t=1; 
     cin >> t;
     while(t--){
