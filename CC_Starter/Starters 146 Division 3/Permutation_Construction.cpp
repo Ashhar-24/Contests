@@ -39,22 +39,32 @@ int expo(int a, int b, int mod) {int res = 1; while (b > 0) {if (b & 1)res = (re
 
 void solve(){
     int n; cin>>n;
-    vector<int>ans(n,0);
+    // vector<int>ans(n,0);
     // ans[0]=1;
 
-    int t=n;
-    for(int i=1; i<n; i+=2){
-        ans[i]=t;
-        t--;
+    // int t=n;
+    // for(int i=1; i<n; i+=2){
+    //     ans[i]=t;
+    //     t--;
+    // }
+    // // for(int x:ans)cout<<x<<" ";
+    // int temp=1, i=0;
+    // while(i<n){
+    //     ans[i]=temp;
+    //     temp++;
+    //     i+=2;
+    // }
+    // for(int x: ans)cout<<x<<" ";
+    // cout<<endl;
+
+    // Alter: Without using extra space, ie in SC: O(1)
+
+    int i=1, j=n;
+    while(i<=j){
+        cout<<i<<" ";
+        cout<<j<<" ";
+        i++, j--;
     }
-    // for(int x:ans)cout<<x<<" ";
-    int temp=1, i=0;
-    while(i<n){
-        ans[i]=temp;
-        temp++;
-        i+=2;
-    }
-    for(int x: ans)cout<<x<<" ";
     cout<<endl;
 
 }	
