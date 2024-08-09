@@ -72,13 +72,13 @@ void solve(){
     // cout<<cnt<<'\n';
 
     // Alter: With SC:O(1)
-    int leftsum=0, sum=0, cnt=0;
+    int leftsum=0, sum=0, cnt=0, rightsum=0;
     for(int i:v)sum+=i;
     for(int i=0; i<n; i++){
         leftsum+=v[i];
         
         if(v[i]==0){
-            int rightsum= sum-leftsum;
+            rightsum= sum-leftsum;
             if(leftsum==rightsum)cnt+=2;
             else if(abs(leftsum-rightsum)==1)cnt++;
         }
