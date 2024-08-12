@@ -35,7 +35,7 @@ void solve(){
         int rem=k;
 
 
-        for(int i=n-1; i>=0; i--){
+        for(int i=n-1; i>=0; i--){          // traversing from back, so that optimally/greedily we can increase v[i] using k, ie largest elements first
             if(v[i].first>=mid)req--;
             else{
                 if(v[i].second==1){
