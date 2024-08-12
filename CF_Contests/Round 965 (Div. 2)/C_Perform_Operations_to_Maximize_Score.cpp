@@ -57,7 +57,7 @@ void solve(){
     // Case 2: Now we look for that largest element which can be max by adding k
     for(int i=n-1; i>=0; i--){
         if(v[i].second==1){
-            if(i>=n/2){
+            if(i>=n/2){                             // this would decide which median to take
                 ans=max(ans,v[i].first + k +v[n/2 -1].first);
             }
             else{
