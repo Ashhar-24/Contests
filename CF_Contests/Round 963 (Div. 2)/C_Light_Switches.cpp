@@ -43,16 +43,21 @@ void solve(){
     fore(i,0,n)cin>>v[i];
     sort(all(v));
 
-    int mini=v.back(), maxi= mini+k-1;
+    int l=v.back(), r= l+k-1;
+    // l-> Min time at which lights will be turned ON, which were initially OFF at v.back()
+    // r-> Max time till which lights will be ON, which were initially ON at v.back()
 
+    // Comparing these both (l,r) will tell us whether it's possible to have all lights ON in the range [a[n-1], a[n-1]+k-1] or not
+    
     for(int i=0; i<n-1; i++){
         int si=v.back(), ei=si+k, ans;
-
-        if(((v.back()-v[i])/k) & 1){    // these are all those lights which are initially OFF at v.back()
-                                    // therefore finding the max time at which all are ON
+        
+        // checking if the current light is ON/OFF at v.back()
+        if(((v.back()-v[i])/k) & 1){    // True, if it is OFF at v.back()
+                                    // therefore finding the min time at which it is ON using BS
             while(si<=ei){
                 int mid= (si+ei)/2;
-                if(((mid-v[i])/k) & 1){
+                if(((mid-v[i])/k) & 1){         // checking if it is ON/OFF at mid
                     si=mid+1;
                 }
                 else{
@@ -60,10 +65,10 @@ void solve(){
                     ei=mid-1;
                 }
             }
-            mini=max(mini, ans);
+            l=max(l, ans);          // updating the l, as now it will be max of (l,ans) as the current light was off at previous l
         }
-        else{                       // these are all those which are initially ON at v.back()
-                                    // therefore finding the min time at which all are ON
+        else{                       // The current light is ON at v.back()
+                                // therefore finding the max time till which it will be ON, because we need to limit our interval till this point, in order to have all the lights ON
             while(si<=ei){
                 int mid= (si+ei)/2;
                 if(((mid-v[i])/k) & 1){
@@ -74,11 +79,11 @@ void solve(){
                     si=mid+1;
                 }
             }
-            maxi=min(maxi,ans);
+            r=min(r,ans);
         }
     }
-    if(mini>maxi)cout<<-1<<endl;
-    else cout<<mini<<endl;
+    if(l>r)cout<<-1<<endl;
+    else cout<<l<<endl;
 }	
 
 
