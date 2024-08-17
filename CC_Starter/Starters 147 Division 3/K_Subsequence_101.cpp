@@ -35,7 +35,7 @@ void solve(){
             if(pq.size()==(k-2)){
                 ans=max(ans, i+v[j]+ sum);
             }
-            // after considering v[j] as ending element we push it to pq, and take next no to the ending no.
+            // after considering v[j] as ending element we push it to pq, and take next no as the ending no.
             pq.push(v[j]);
             sum += 2*v[j];
             if(pq.size()>(k-2)){
