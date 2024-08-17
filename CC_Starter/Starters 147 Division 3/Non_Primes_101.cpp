@@ -82,8 +82,8 @@ void solve(){
         if(a!=b)cout<<mp[a]+1<<" "<<mp[b]+1<<endl;
         else{
             vector<int>tempo=mpeq[a];
-            if(tempo[0] != tempo[1])cout<<tempo[0]+1<<" "<<tempo[1]+1<<endl;
-            else cout<<-1<<endl;
+            cout<<tempo[0]+1<<" "<<tempo[1]+1<<endl;
+            // else cout<<-1<<endl;
             
         }
     }
