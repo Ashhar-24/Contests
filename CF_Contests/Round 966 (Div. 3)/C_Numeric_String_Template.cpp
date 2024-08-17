@@ -21,14 +21,14 @@ void solve(){
     fore(i,0,n)cin>>v[i];
     int m; cin>>m;
 
-    unordered_map<int,vector<int>>ind;
+    map<int,vector<int>>ind;
     fore(i,0,n){
         ind[v[i]].pb(i);
     }
 
     while(m--){
         string s; cin>>s;
-        unordered_map<char,vector<int>>ind2;
+        map<char,vector<int>>ind2;
         for(int i=0; i<s.size(); i++){
             ind2[s[i]].pb(i);
         }
