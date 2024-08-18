@@ -26,6 +26,12 @@ void solve(){
         ind[v[i]].pb(i);
     }
 
+    vector<vector<int>>v1;
+    for (auto vec : ind) {
+        v1.pb(vec.second);
+    }
+    sort(all(v1));      // a 2D vector gets sorted lexographically by comparing each element with the next row.
+
     while(m--){
         string s; cin>>s;
         map<char,vector<int>>ind2;
@@ -36,36 +42,46 @@ void solve(){
             no;
         }
         else{
-            bool valid=1;
-            for(auto &pair: ind){
-                vector<int>indices= pair.second;
-                char letter=s[indices[0]];
 
-                for(auto idx:indices){
-                    if(s[idx]!=letter){
-                        valid=0;
-                        break;
-                    }
-                }
-                if(!valid)break;
+            // Alter: Comparing both the vectors:
+            vector<vector<int>>v2;
+            for (auto vec : ind2) {
+                v2.pb(vec.second);
             }
-
-            bool valid2=1;
-            for(auto &pair: ind2){
-                vector<int>indices= pair.second;
-                int num=v[indices[0]];
-
-                for(auto idx:indices){
-                    if(v[idx]!=num){
-                        valid2=0;
-                        break;
-                    }
-                }
-                if(!valid2)break;
-            }
-
-            if(valid and valid2)yes;
+		    sort(all(v2));
+            if(v1==v2)yes;
             else no;
+
+            // bool valid=1;
+            // for(auto &pair: ind){
+            //     vector<int>indices= pair.second;
+            //     char letter=s[indices[0]];
+
+            //     for(auto idx:indices){
+            //         if(s[idx]!=letter){
+            //             valid=0;
+            //             break;
+            //         }
+            //     }
+            //     if(!valid)break;
+            // }
+
+            // bool valid2=1;
+            // for(auto &pair: ind2){
+            //     vector<int>indices= pair.second;
+            //     int num=v[indices[0]];
+
+            //     for(auto idx:indices){
+            //         if(v[idx]!=num){
+            //             valid2=0;
+            //             break;
+            //         }
+            //     }
+            //     if(!valid2)break;
+            // }
+
+            // if(valid and valid2)yes;
+            // else no;
         }
     }
 }	
