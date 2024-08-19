@@ -29,7 +29,7 @@ void solve(){
     map<int,int>cnt;        // will store the sum of indices where a particular prefix sum occured towards left
     int ans=0;
 
-    for(int i=0; i<=n; i++){
+    for(int i=0; i<=n; i++){            // starting from 0, because when we reach the end of string or in anywhere between, in order to get a subarray from index 1, we would have to compare with 0th index.
         int rightrange= n-i+1;              // right range for which the current i would be y in [x,y] which would've equal no of 0's and 1's
         int leftrange= cnt[pref[i]];        // left range would be that index where last pref[i] was found
         ans=(ans+ (leftrange*rightrange))%MOD;
