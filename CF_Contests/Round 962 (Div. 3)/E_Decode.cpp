@@ -34,7 +34,7 @@ void solve(){
         int leftrange= cnt[pref[i]];        // left range would be that index where last pref[i] was found
         ans=(ans+ (leftrange*rightrange))%MOD;
 
-        cnt[pref[i]] = (cnt[pref[i]] + (i+1))%MOD;      // updating the current pref[i]'s cnt in map by (i+1), as in [x,y] pref[x-1]==pref[y], ie left range would be x
+        cnt[pref[i]] = (cnt[pref[i]] + (i+1))%MOD;      // updating the current pref[i]'s cnt in map by (i+1), as in [x,y] pref[x-1]==pref[y], ie left range would be x, so here x-1== i
     }
 
     cout<<ans<<endl;
