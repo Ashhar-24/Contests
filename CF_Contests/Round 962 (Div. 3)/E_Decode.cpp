@@ -19,11 +19,11 @@ int MOD= 1e9+7;
 void solve(){
     string s; cin>>s;
     int n= s.size();
-    s=" "+s;    // adding an extra space/length to the string to avoid indexing mistake
+    // s=" "+s;    // adding an extra space/length to the string to avoid indexing mistake
 
     vector<int>pref(n+1,0);         // calculate the prefix sum by taking '0' as -1 and '1' as 1
     for(int i=1; i<=n; i++){
-        pref[i]=(s[i]== '1' ? 1 : -1) + pref[i-1];
+        pref[i]=(s[i-1]== '1' ? 1 : -1) + pref[i-1];
     }
 
     map<int,int>cnt;        // will store the sum of indices where a particular prefix sum occured towards left
