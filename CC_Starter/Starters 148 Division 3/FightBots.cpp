@@ -30,7 +30,7 @@ void solve(){
         else if(s[i]=='L'){
             y_vec[i] = y_vec[i-1];
             x_vec[i] = x_vec[i-1] - 1;
-}
+        }
         else if(s[i]=='U'){
             y_vec[i] = y_vec[i-1]+1;
             x_vec[i] = x_vec[i-1];
