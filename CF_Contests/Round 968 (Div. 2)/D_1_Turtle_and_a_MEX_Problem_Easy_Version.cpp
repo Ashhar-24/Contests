@@ -39,7 +39,8 @@ void solve(){
         // cout<<b<<endl;
 
         // a and b stores the smallest 2 missing no, while k stores the max no we can get using all the sequences.
-        k=max(k, max(a,b));
+        // k=max(k, max(a,b));
+        k=max(k, b);
         // debug(k);
     }
 
