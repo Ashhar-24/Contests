@@ -17,15 +17,30 @@ int convertdecimal(vector<int> v){int ans=0; for(int i=0; i<64; i++){ ans+=v[i]*
 
 void solve(){
     int l,r; cin>>l>>r;
-    int cnt=0;
-    int diff=1;
-    while(l<=r){
-        cnt++;
-        l+=diff;
-        diff++;
+    // int cnt=0;
+    // int diff=1;
+    // while(l<=r){
+    //     cnt++;
+    //     l+=diff;
+    //     diff++;
+    // }
+
+    // cout<<cnt<<endl;
+
+    // Optimised approach O(logn) [above is O(sqrt(n))]
+    int range = (r-l+1);
+    int low=1, high=1e9;
+    int ans=0;
+    while(low<=high){
+        int mid = (low+high)/2;
+        if(((mid*mid)-mid+2)/2 <= range){
+            ans= mid;
+            low=mid+1;
+        }
+        else high=mid-1;
     }
 
-    cout<<cnt<<endl;
+    cout<<ans<<endl;
 }	
 
 
