@@ -31,7 +31,7 @@ void solve(){
     }
     int ans= 2*n*v[ind] - sum +1;       // adding 1 as it should be strictly greater
 
-    cout<<max(0LL,ans)<<endl;       // as ans should be non negative
+    cout<<max(0LL,ans)<<endl;       // as 'ans' should be non negative
 }	
 
 
