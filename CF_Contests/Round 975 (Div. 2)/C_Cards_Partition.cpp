@@ -23,7 +23,7 @@ void solve(){
     int sum= accumulate(all(v),0LL);
     int maxi_element= *max_element(all(v));
 
-    int size=n;             // max size of deck can 'n', as no deck can have card of same type
+    int size=n;             // max size of deck can be 'n', as no deck can have card of same type
     int max_cards= sum+k;
     while(size>1){
         int no_of_deck= max_cards/size;
