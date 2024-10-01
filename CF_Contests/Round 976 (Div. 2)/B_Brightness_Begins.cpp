@@ -21,7 +21,7 @@ void solve(){
     int l=1, r=4e18, ans;
     while(l<=r){
         int mid = (l+r)/2;
-        int on= mid- (int)sqrtl(mid);
+        int on= mid- (int)sqrtl(mid);       // no of non-perfect square nos
 
         if(on<k)l=mid+1;
         else{
