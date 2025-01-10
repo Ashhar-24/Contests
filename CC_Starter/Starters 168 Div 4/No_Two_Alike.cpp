@@ -28,14 +28,13 @@ void solve(){
     int i = 0, cnt=0;
     while(i<n){
         int j = mp[v[i]];
+        set<int>st;
         while(i<j && i<n){
             j = max(j, mp[v[i]]);
-            if(seen[v[i]]==0){
-                cnt++;
-                seen[v[i]]=1;
-            }
+            st.insert(v[i]);
             i++;
         }
+        cnt+=st.size();
         i++;
     }
     cout<<cnt<<endl;
