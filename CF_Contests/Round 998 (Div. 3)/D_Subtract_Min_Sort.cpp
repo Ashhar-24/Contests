@@ -16,18 +16,28 @@ using namespace std;
 // vector<int> convertbinary64(int n){ vector<int> v(64,0); int i=0; while(n>0){ v[i]=n%2; n/=2; i++;} return v;}   // this represents the binary form in reverse manner
 // int convertdecimal(vector<int> v){int ans=0; for(int i=0; i<64; i++){ ans+=v[i]*pow(2,i);}return ans;}
 
-int cnt(int a, int b, int c, int d, int e){
-    int count = 0;
-    if(a+b==c)count++;
-    if(b+c==d)count++;
-    if(c+d==e)count++;
-    return count;
-}
 void solve(){
-    int a,b,c,d; cin>>a>>b>>c>>d;
-    // three possible values of a3
-    int ans = max(cnt(a,b,a+b,c,d), max(cnt(a,b,d-b,c,d), cnt(a,b,d-c,c,d)));
-    cout<<ans<<endl;
+    int n; cin>>n;
+    vector<int>v(n);
+    fore(i,0,n)cin>>v[i];
+
+    fore(i,1,n){
+        int mini = min(v[i], v[i-1]);
+        v[i]-=mini;
+        v[i-1]-=mini;
+    }
+
+    bool is = 1;
+    fore(i,1,n){
+        if(v[i]<v[i-1]){
+            is = 0; break;
+        }
+    }
+
+    if(is)yes;
+    else no;
+
+    // is_sorted(all(v)) ? yes : no;
 }	
 
 

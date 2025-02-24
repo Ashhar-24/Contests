@@ -16,18 +16,33 @@ using namespace std;
 // vector<int> convertbinary64(int n){ vector<int> v(64,0); int i=0; while(n>0){ v[i]=n%2; n/=2; i++;} return v;}   // this represents the binary form in reverse manner
 // int convertdecimal(vector<int> v){int ans=0; for(int i=0; i<64; i++){ ans+=v[i]*pow(2,i);}return ans;}
 
-int cnt(int a, int b, int c, int d, int e){
-    int count = 0;
-    if(a+b==c)count++;
-    if(b+c==d)count++;
-    if(c+d==e)count++;
-    return count;
-}
 void solve(){
-    int a,b,c,d; cin>>a>>b>>c>>d;
-    // three possible values of a3
-    int ans = max(cnt(a,b,a+b,c,d), max(cnt(a,b,d-b,c,d), cnt(a,b,d-c,c,d)));
-    cout<<ans<<endl;
+    int n,m; cin>>n>>m;
+    vector<vector<int>> v(n, vector<int>(m));
+    unordered_map<int,int>mp;
+    fore(i,0,n){
+        fore(j,0,m)cin>>v[i][j];
+    }
+    int i=1;
+    for(auto& x: v){
+        sort(all(x));
+        mp[x[0]]=i++;
+    }
+
+    sort(all(v));       // sorted lexographically
+    for(auto& x:v){
+        fore(i,1,m){
+            if((x[i]-x[i-1])!=n){
+                cout<<-1<<endl; return;
+            }
+        }
+    }
+    
+    fore(i,0,n){
+        int nu = v[i][0];
+        cout<<mp[nu]<<" ";
+    }
+    cout<<endl;
 }	
 
 
@@ -44,3 +59,5 @@ signed main() {
 
     return 0;
 }
+
+// upsolve
