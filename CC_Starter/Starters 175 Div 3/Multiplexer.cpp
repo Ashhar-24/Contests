@@ -17,25 +17,53 @@ using namespace std;
 // int convertdecimal(vector<int> v){int ans=0; for(int i=0; i<64; i++){ ans+=v[i]*pow(2,i);}return ans;}
 
 void solve(){
-    int n; cin>>n;
-    string s; cin>>s;
-    int a=0, b=0;
-    for(char c:s){
-        if(c=='-')a++;
-        else b++;
+    int n,x; cin>>n>>x;
+    vector<int>v(n);
+    unordered_map<int,int>mp;
+    unordered_map<int, vector<int>>pos;
+    fore(i,0,n){
+        cin>>v[i];
+        mp[v[i]]++;
+        pos[v[i]].push_back(i);
     }
-    if(n<3){
-        cout<<0<<endl; return;
+    if(x==1){
+        int temp=0;
+        for(auto& x: mp){
+            temp = max(temp, x.second);
+        }
+        cout<<temp<<endl; return;
     }
 
-    if(a<2){
-        cout<<0<<endl; return;
-    }
-    int left = a/2;
-    // int right = (a+1)/2;
-    int right = a - left;
+    int ans=0;
+    for(auto& x: mp)ans = max(ans, x.second);
 
-    int ans = b * left * right;
+    for(auto& p: pos){
+        int u = p.first, v = u*x;
+        int base = (mp.count(v) ? mp[v] : 0);
+        int best = 0;
+        vector<pair<int,int>> mex;
+        if(pos.count(u)){
+            for(auto& i: pos[u]) mex.pb({i, 1});
+        }
+        
+        if(pos.count(v)){
+            for(auto& i: pos[v]) mex.pb({i, -1});
+        }
+
+        if(mex.empty()) continue;
+
+        sort(all(mex), [](auto&a, auto& b){
+            return a.first>b.first;
+        });
+
+        int curr = 0;
+        for(auto& p: mex){
+            curr += p.second;
+            if(curr<0) curr = 0;
+            best = max(best, curr);
+        }
+        ans=max(ans, base+best);
+    }
 
     cout<<ans<<endl;
 }	

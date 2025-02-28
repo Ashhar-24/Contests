@@ -17,27 +17,8 @@ using namespace std;
 // int convertdecimal(vector<int> v){int ans=0; for(int i=0; i<64; i++){ ans+=v[i]*pow(2,i);}return ans;}
 
 void solve(){
-    int n; cin>>n;
     string s; cin>>s;
-    int a=0, b=0;
-    for(char c:s){
-        if(c=='-')a++;
-        else b++;
-    }
-    if(n<3){
-        cout<<0<<endl; return;
-    }
-
-    if(a<2){
-        cout<<0<<endl; return;
-    }
-    int left = a/2;
-    // int right = (a+1)/2;
-    int right = a - left;
-
-    int ans = b * left * right;
-
-    cout<<ans<<endl;
+    
 }	
 
 

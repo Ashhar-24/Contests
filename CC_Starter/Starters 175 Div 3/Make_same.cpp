@@ -18,26 +18,52 @@ using namespace std;
 
 void solve(){
     int n; cin>>n;
-    string s; cin>>s;
-    int a=0, b=0;
-    for(char c:s){
-        if(c=='-')a++;
-        else b++;
-    }
-    if(n<3){
-        cout<<0<<endl; return;
+    string s1,s2,s3; cin>>s1>>s2>>s3;
+
+    int z1 = count(all(s1), '0');
+    int z2 = count(all(s2), '0');
+    int z3 = count(all(s3), '0');
+
+    int totz = z1+z2+z3;
+    if(totz % n != 0){
+        cout<<-1<<endl; return;
     }
 
-    if(a<2){
-        cout<<0<<endl; return;
+    int k =  totz/n;
+    if(k<0 || k>3){
+        cout<<-1<<endl; return;
     }
-    int left = a/2;
-    // int right = (a+1)/2;
-    int right = a - left;
+    
+    int ans = INT_MAX;
+    for(int i=0; i< (1<<3); i++){
+        if (__builtin_popcount(i) != k) continue;
+        int less = 0, extra = 0;
 
-    int ans = b * left * right;
+        if(i&1){
+            less += (n-z1);
+        }
+        else{
+            extra += z1;
+        }
 
-    cout<<ans<<endl;
+        if(i&2){
+            less += (n-z2);
+        }
+        else{
+            extra += z2;
+        }
+        if(i&4){
+            less += (n-z3);
+        }
+        else{
+            extra += z3;
+        }
+        if(less==extra){
+            ans = min(ans, less);
+        }
+    }
+
+    cout<< (ans==INT_MAX ? -1 : ans)<<endl;
 }	
 
 

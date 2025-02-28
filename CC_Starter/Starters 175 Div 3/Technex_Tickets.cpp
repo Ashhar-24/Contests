@@ -18,26 +18,13 @@ using namespace std;
 
 void solve(){
     int n; cin>>n;
-    string s; cin>>s;
-    int a=0, b=0;
-    for(char c:s){
-        if(c=='-')a++;
-        else b++;
+    if(n==1){
+        cout<<1<<endl; return;
     }
-    if(n<3){
-        cout<<0<<endl; return;
+    if(n&1){
+        cout<<n/2<<endl;
     }
-
-    if(a<2){
-        cout<<0<<endl; return;
-    }
-    int left = a/2;
-    // int right = (a+1)/2;
-    int right = a - left;
-
-    int ans = b * left * right;
-
-    cout<<ans<<endl;
+    else cout<< (n/2) + 1<<endl;
 }	
 
 
